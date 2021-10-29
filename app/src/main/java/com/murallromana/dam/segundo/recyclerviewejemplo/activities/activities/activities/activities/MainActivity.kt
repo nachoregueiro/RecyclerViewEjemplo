@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.murallromana.dam.segundo.recyclerviewejemplo.R
+import com.murallromana.dam.segundo.recyclerviewejemplo.activities.activities.activities.Modelo.dao.PersonajesDao
+import com.murallromana.dam.segundo.recyclerviewejemplo.activities.activities.activities.Modelo.dao.PersonajesDaoMockImpl
+import com.murallromana.dam.segundo.recyclerviewejemplo.activities.activities.activities.adapters.ListaPersonajesAdapter
 import com.murallromana.dam.segundo.recyclerviewejemplo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -14,16 +17,30 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
 
+        //Inflo las vistas
         setContentView(R.layout.activity_main)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val layoutManager = LinearLayoutManager(this)
+        //Obtengo los datos de los personajes
+        val personajesDao =PersonajesDaoMockImpl()
+        val listaPersonajes =personajesDao.getTodos()
 
-        val p= Personaje (0,"Daenerys","Targaryen","Madre de dragones","Casa Targaryen","https://thronesapi.com/assets/images/daenerys.jpg")
-        println(p.nombre)
+
+        //Creo los componentes
+        val layoutManager = LinearLayoutManager(this)
+        val adapter = ListaPersonajesAdapter(listaPersonajes)
+
+        //Asocio el RecyclerView con sus componentes
+        binding.rvListaPersonajes.adapter =adapter
+        binding.rvListaPersonajes.layoutManager =layoutManager
+
+
+
 
     }
+
+
 
 }
 

@@ -14,6 +14,8 @@ class Personaje(
            return nombre+" "+apellido
         }
 
+
+
             //Otras formas de hacerlo:
              /*fun getNombreCompleto2():String{
              return "El nombre es:${this.nombre} y el apellido es: ${this.apellido}"
