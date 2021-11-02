@@ -35,6 +35,8 @@ class MainActivity : AppCompatActivity() {
         binding.rvListaPersonajes.adapter =adapter
         binding.rvListaPersonajes.layoutManager =layoutManager
 
+        //Si la lista no va a cambiar
+        binding.rvListaPersonajes.setHasFixedSize(true)
 
 
 
