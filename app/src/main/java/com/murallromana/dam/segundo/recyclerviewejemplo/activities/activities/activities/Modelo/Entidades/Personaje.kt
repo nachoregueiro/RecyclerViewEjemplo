@@ -1,5 +1,7 @@
 package com.murallromana.dam.segundo.recyclerviewejemplo.activities.activities.activities.Modelo.Entidades
 
+import java.io.Serializable
+
 class Personaje(
     var id: Long,
     var nombre: String,
@@ -7,7 +9,7 @@ class Personaje(
     var titulo:String,
     var familia:String,
     var url:String
-    )
+    ):Serializable
 
         {
         fun obtenerNombreyApellidos() :String{
